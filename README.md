@@ -95,16 +95,19 @@ azure-aks-ubuntu  |100.10.10.112|Ubuntu 18.04|2G|2|
 
 From ***local windows system terminal*** execute the below commands
 
-* `$ ssh -L 8001:localhost:8001 root@100.10.10.112` [***password : vagrant***]
+* `$ ssh -L 8001:localhost:8001 vagrant@100.10.10.112` [***password : vagrant***]
+
+* `$ kubectl create clusterrolebinding dashboard-admin -n kube-system --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard`
 
 Use the below command to generate ***access token*** to login ***Dashboard***
+
 * `$ kubectl get secret $(kubectl get serviceaccount default -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode`
 
 Start proxy to access kubernetes dashboard
 * `$ kubectl proxy`
 
 ***Click !***
-[http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login)
+[http://localhost:8001/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:/proxy/#!/login](http://localhost:8001/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:/proxy/#!/login)
 
 
 <a id="aks"></a>
