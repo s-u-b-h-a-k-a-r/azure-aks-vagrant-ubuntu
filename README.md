@@ -48,8 +48,8 @@ VM:
 ```
 Open `windows (OR) bash` terminal from your `local windows` system
 
-* `$ cd azure-aks-vagrant-ubuntu/provisioning` 
 * `$ git clone https://github.com/SubhakarKotta/azure-aks-vagrant-ubuntu.git` 
+* `$ cd azure-aks-vagrant-ubuntu/provisioning` 
 * `$ vagrant up`
 
 
