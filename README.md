@@ -31,7 +31,7 @@ This setup is used to install ***prerequisites*** that are required to ***access
 * [Vagrant (Version >= 2.2.0)](https://www.vagrantup.com/downloads.html "Vagrant") is an open-source software product for building and maintaining portable virtual software development environments, e.g. for VirtualBox, Hyper-V, Docker containers, VMware, and AWS
 * [Oracle VM VirtualBox (Version >= 6.0)](https://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html "Oracle Virtual Manger") lets you run multiple operating systems on Mac OS, Windows, Linux, or Oracle Solaris.
 * Minimum laptop/desktop configuration  - 8GBRAM , 4CPU , support for VT-X
-
+* Azure credentials which can be obtained [HERE](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F)
 
 
 <a id="deploy"></a>
