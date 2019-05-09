@@ -98,7 +98,11 @@ $ az group create --name <CUSTOM_GROUP_NAME> --location <DESIRED_LOCATION_NAME>
 ```
 $ az aks create -g <CUSTOM_GROUP_NAME> -n <CUSTOM_CLUSTER_NAME> -s <DESIRED_NODE_VM_SIZE> -c <DESIRED_NODE_COUNT> -k <DESIRED_KUBERNETES_VERSION> -l <DESIRED_LOCATION_NAME> --enable-addons monitoring --generate-ssh-keys
 ```
-3. Test Kubernetes Connection: 
+3. Update `kubeconfig` with new credentials:
+```
+$ az aks get-credentials --resource-group <CUSTOM_GROUP_NAME> --name <CUSTOM_CLUSTER_NAME>
+```
+4. Test Kubernetes Connection: 
 ```
 $ kubectl get nodes
 ```
@@ -128,21 +132,6 @@ Start proxy to access kubernetes dashboard
 
 
 <a id="aks"></a>
-
-# Access AKS Cluster
-**Login to vagrant box from your local machine**
-* `$ cd azure-aks-vagrant-ubuntu/provisioning`
-* `$ vagrant ssh azure-aks-ubuntu`
-
-**Provide AKS Credentials**
-* `$ az login --username <YOUR_NAME> --password <YOUR_PASSWORD>`
-
-**Command to know list of AKS Clusters**
-* `$ az aks list`
-
-**Fetch/Update kubeconfig to your vagrant box**
-* `$ az aks get-credentials --resource-group <YOUR_RESOURCE_GROUP_NAME> --name <YOUR_CLUSTER_NAME>`
-* `$ kubectl get nodes` [To verify kubectl is connected to aks cluster]
 
 **[Access Kubernetes Dashboard](#access_dashboard) by following the steps given in the link**
 
