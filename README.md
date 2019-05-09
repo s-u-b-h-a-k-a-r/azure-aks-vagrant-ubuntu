@@ -73,18 +73,35 @@ azure-aks-ubuntu  |100.10.10.112|Ubuntu 18.04|2G|2|
 **Provide Azure Credentials**
 * `$ az login --username <YOUR_NAME> --password <YOUR_PASSWORD>`
 
-
 **Commands to know Azure supported locations/sizes/versions**
-* `$ az account list-locations` [To list supported locations to create AKS cluster]
-* `$ az vm list-sizes -l <LOCATION_NAME>`[To list supported sizes]
-* `$ az aks get-versions -l <LOCATION_NAME>`[To list supported kubernetes versions]
+If you don't already know which values are present, and which you can use, you'll want to issue each of these commands to see what is available for further use below.
+
+1. List Supported Locations (choose closest one to where you are):
+```
+$ az account list-locations
+```
+2. List Supported Sizes (choose whichever is best for you):
+```
+$ az vm list-sizes -l <DESIRED_LOCATION_NAME>
+```
+3. List Supported Kubernetes Versions (choose whichever is best for you)
+```
+$ az aks get-versions -l <DESIRED_LOCATION_NAME>
+```
  
  **Create AKS Cluster**
- 
-* `$ az group create --name <YOUR_RESOURCE_GROUP_NAME>  --location <YOUR_LOCATION_NAME>`[To create Resource Group]
-* `$ az aks create   -g <YOUR_RESOURCE_GROUP_NAME>  -n <YOUR_CLUSTER_NAME>   -s <YOUR_NODE_VM_SIZE>  -c <YOUR_NODE_COUNT>  -k <YOUR_KUBERNETES_VERSION> -l <YOUR_LOCATION_NAME>  --enable-addons monitoring`
-* `$ kubectl get nodes` [To verify kubectl is connected to aks cluster]
-
+1. Create Resource Group (_CUSTOM_GROUP_NAME_ can be whatever you want):
+```
+$ az group create --name <CUSTOM_GROUP_NAME> --location <DESIRED_LOCATION_NAME>
+```
+2. Create Kubernetes Cluster (_CUSTOM_CLUSTER_NAME_ can be whatever you want): 
+```
+$ az aks create -g <CUSTOM_GROUP_NAME> -n <CUSTOM_CLUSTER_NAME> -s <DESIRED_NODE_VM_SIZE> -c <DESIRED_NODE_COUNT> -k <DESIRED_KUBERNETES_VERSION> -l <DESIRED_LOCATION_NAME> --enable-addons monitoring --generate-ssh-keys
+```
+3. Test Kubernetes Connection: 
+```
+$ kubectl get nodes
+```
 
 **[Access Kubernetes Dashboard](#access_dashboard) by following the steps given in the link**
 
