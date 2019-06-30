@@ -19,6 +19,6 @@ Vagrant.configure(2) do |config|
                          client.vm.provision "shell", path: "azurecli/install.sh"
                          client.vm.provision "shell", path: "terraform/install.sh",:args => [settings["terraform"]["version"]]
 	                    client.vm.provision "shell", path: "kubectl/install.sh"
-                         client.vm.provision "shell", path: "helm/install.sh"
+                         client.vm.provision "shell", path: "helm/install.sh",:args => [settings["helm"]["version"]]
                     end
  end
